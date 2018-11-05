@@ -37,6 +37,8 @@
                                                 <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" >选项D</th>
                                                 <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" >正确选项</th>
                                                 <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" >解析</th>
+                                                <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" >创建者</th>
+                                                <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" >学科</th>
                                                 <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" >创建时间</th>
                                                 <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" width="100px">操作</th>
                                             </tr>
@@ -52,6 +54,8 @@
                                                     <td>{{$question->option_d}}</td>
                                                     <td>{{$question->answer}}</td>
                                                     <td>{{$question->analysis}}</td>
+                                                    <td>{{$question->user->name}}</td>
+                                                    <td>{{$question->subject->name}}</td>
                                                     <td>{{$question->created_at}}</td>
                                                     <td>
                                                         <a href="{{route('questions.edit',[$question->id, request()->type])}}" class="btn btn-success pull-left">编辑</a>
@@ -73,6 +77,8 @@
                                                 <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" >题目</th>
                                                 <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" >正确选项</th>
                                                 <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" >解析</th>
+                                                <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" >创建者</th>
+                                                <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" >学科</th>
                                                 <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" >创建时间</th>
                                                 <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" >操作</th>
                                             </tr>
@@ -84,6 +90,8 @@
                                                     <td>{{$question->title}}</td>
                                                     <td>{{$question->answer}}</td>
                                                     <td>{{$question->analysis}}</td>
+                                                    <td>{{$question->user->name}}</td>
+                                                    <td>{{$question->subject->name}}</td>
                                                     <td>{{$question->created_at}}</td>
                                                     <td>
                                                         <a href="{{route('questions.edit',[$question->id, request()->type])}}" class="btn btn-success pull-left">编辑</a>
