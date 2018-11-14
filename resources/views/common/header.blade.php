@@ -36,7 +36,7 @@
                             <li class="list-item">
                                 <a href="#" class="media-hover">
                                     <div class="media-img">
-                                        <img src="assets/img/users/avatar-1.jpg" alt="">
+                                        {{--<img src="assets/img/users/avatar-1.jpg" alt="">--}}
                                     </div>
                                     <div class="info">
                                         <span class="title">
@@ -49,7 +49,7 @@
                             <li class="list-item">
                                 <a href="#" class="media-hover">
                                     <div class="media-img">
-                                        <img src="assets/img/users/avatar-2.jpg" alt="">
+                                        {{--<img src="assets/img/users/avatar-2.jpg" alt="">--}}
                                     </div>
                                     <div class="info">
                                         <span class="title">
@@ -62,7 +62,7 @@
                             <li class="list-item">
                                 <a href="#" class="media-hover">
                                     <div class="media-img">
-                                        <img src={{url("assets/img/users/avatar-3.jpg")}} alt="">
+                                        {{--<img src={{url("assets/img/users/avatar-3.jpg")}} alt="">--}}
                                     </div>
                                     <div class="info">
                                         <span class="title">

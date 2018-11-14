@@ -20,4 +20,7 @@ Route::resource('questions', 'QuestionsController',['except' => ['index', 'creat
 Route::get('/questions/type/{type}','QuestionsController@index')->name('questions.index');
 Route::get('/questions/create/type/{type}','QuestionsController@create')->name('questions.create');
 Route::get('/questions/{question}/edit/type/{type}', 'QuestionsController@edit')->name('questions.edit');
+Route::resource('papers', 'PapersController');
+Route::get('/papers/questions/type/{type}', 'PapersController@questions')->name('papers.questions');
+Route::post('/papers/submit', 'PapersController@submit')->name('papers.submit');
 

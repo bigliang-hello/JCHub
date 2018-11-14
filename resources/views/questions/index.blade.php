@@ -80,7 +80,7 @@
                                                 <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" >创建者</th>
                                                 <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" >学科</th>
                                                 <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" >创建时间</th>
-                                                <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" >操作</th>
+                                                <th width="100px">操作</th>
                                             </tr>
                                             </thead>
                                             <tbody>

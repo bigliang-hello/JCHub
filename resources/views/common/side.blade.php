@@ -32,8 +32,8 @@
 
                 </a>
             </li>
-            <li class="nav-item dropdown">
-                <a class="dropdown-toggle" href="#">
+            <li class="nav-item dropdown {{strpos(request()->getPathInfo(),'papers')?'open':''}}">
+                <a class="dropdown-toggle" href="{{route('papers.index')}}">
                     <span class="icon-holder">
                         <i class="lni-files"></i>
                     </span>
@@ -73,6 +73,26 @@
                         <i class="lni-pencil-alt"></i>
                     </span>
                     <span class="title">阅卷管理</span>
+
+                </a>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="dropdown-toggle" href="#">
+                    <span class="icon-holder">
+                        <i class="lni-write"></i>
+                    </span>
+                    <span class="title">博客管理</span>
+
+                </a>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="dropdown-toggle" href="#">
+                    <span class="icon-holder">
+                        <i class="lni-envelope"></i>
+                    </span>
+                    <span class="title">评论管理</span>
 
                 </a>
             </li>

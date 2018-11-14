@@ -77,7 +77,7 @@ body {
   line-height: 1.6;
   color: #212529;
   text-align: left;
-  background-color: #f8fafc;
+  background-color: #eff6fa;
 }
 
 [tabindex="-1"]:focus {
@@ -4519,6 +4519,7 @@ input[type="button"].btn-block {
 .nav-link {
   display: block;
   padding: 0.5rem 1rem;
+  color: rgba(0,0,0,.5);
 }
 
 .nav-link:hover,
@@ -4641,6 +4642,7 @@ input[type="button"].btn-block {
   font-size: 1.125rem;
   line-height: inherit;
   white-space: nowrap;
+  color: rgba(0,0,0,.9);
 }
 
 .navbar-brand:hover,
