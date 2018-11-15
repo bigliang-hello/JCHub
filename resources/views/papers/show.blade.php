@@ -7,7 +7,9 @@
         <div class="card-body">
             <h2 class="text-center">{{$paper->title}}</h2>
             <p class="text-center">总分：{{$paper->total_score}}分 时间：60分钟</p>
-            <form action="">
+            <form action="{{route('papers.submit')}}" method="POST">
+                <input type="hidden" name="_token" value="{{csrf_token()}}">
+                <input type="hidden" name="paper_id" value="{{$paper->id}}">
                 @if($questions_type1)
                     <div class="mt-4">
                     <h5>选择题(每题：{{$paper->type_1_per_score}}分)</h5>
@@ -15,19 +17,19 @@
                         <div class="mt-4">
                             <p class="card-text">{{$index+1}}.{{$question->title}}</p>
                             <div class="custom-control custom-radio radio custom-control-inline">
-                                <input type="radio" class="custom-control-input" name="select[]" id="question_{{$question->id}}_1" value="A">
+                                <input type="radio" class="custom-control-input" name="select[{{$question->id}}]" id="question_{{$question->id}}_1" value="A">
                                 <label class="custom-control-label" for="question_{{$question->id}}_1">{{$question->option_a}}</label>
                             </div>
                             <div class="custom-control custom-radio radio custom-control-inline">
-                                <input type="radio" class="custom-control-input" name="select[]" id="question_{{$question->id}}_2" value="B">
+                                <input type="radio" class="custom-control-input" name="select[{{$question->id}}]" id="question_{{$question->id}}_2" value="B">
                                 <label class="custom-control-label" for="question_{{$question->id}}_2">{{$question->option_b}}</label>
                             </div>
                             <div class="custom-control custom-radio radio custom-control-inline">
-                                <input type="radio" class="custom-control-input" name="select[]" id="question_{{$question->id}}_3" value="C">
+                                <input type="radio" class="custom-control-input" name="select[{{$question->id}}]" id="question_{{$question->id}}_3" value="C">
                                 <label class="custom-control-label" for="question_{{$question->id}}_3">{{$question->option_c}}</label>
                             </div>
                             <div class="custom-control custom-radio radio custom-control-inline">
-                                <input type="radio" class="custom-control-input" name="select[]" id="question_{{$question->id}}_4" value="D">
+                                <input type="radio" class="custom-control-input" name="select[{{$question->id}}]" id="question_{{$question->id}}_4" value="D">
                                 <label class="custom-control-label" for="question_{{$question->id}}_4">{{$question->option_d}}</label>
                             </div>
                         </div>
@@ -42,11 +44,11 @@
                                 <div class="mt-4">
                                     <p class="card-text">{{$index+1}}.{{$question->title}}</p>
                                     <div class="custom-control custom-radio radio custom-control-inline">
-                                        <input type="radio" class="custom-control-input" name="gender21" id="question_{{$question->id}}_1" value="true">
+                                        <input type="radio" class="custom-control-input" name="judge[{{$question->id}}]" id="question_{{$question->id}}_1" value="true">
                                         <label class="custom-control-label" for="question_{{$question->id}}_1">正确</label>
                                     </div>
                                     <div class="custom-control custom-radio radio custom-control-inline">
-                                        <input type="radio" class="custom-control-input" name="gender21" id="question_{{$question->id}}_2" value="false">
+                                        <input type="radio" class="custom-control-input" name="judge[{{$question->id}}]" id="question_{{$question->id}}_2" value="false">
                                         <label class="custom-control-label" for="question_{{$question->id}}_2">错误</label>
                                     </div>
                                 </div>
@@ -60,7 +62,7 @@
                             @foreach($questions_type3 as $question)
                                 <div class="mt-4">
                                     <p class="card-text">{{$index+1}}.{{$question->title}}</p>
-                                    <input type="text" class="form-control" id="exampleInputCity1" placeholder="">
+                                    <input type="text" name="blank[{{$question->id}}]" class="form-control" id="question_{{$question->id}}" placeholder="">
                                 </div>
                             @endforeach
                         </div>
@@ -72,7 +74,7 @@
                             @foreach($questions_type4 as $question)
                                 <div class="mt-4">
                                     <p class="card-text">{{$index+1}}.{{$question->title}}</p>
-                                    <textarea type="text" class="form-control" rows="4" id="exampleInputCity1" placeholder=""></textarea>
+                                    <textarea type="text" name="essay[{{$question->id}}]" class="form-control" rows="4" id="question_{{$question->id}}" placeholder=""></textarea>
                                 </div>
                             @endforeach
                         </div>

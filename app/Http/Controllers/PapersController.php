@@ -3,13 +3,21 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\PaperRequest;
+use App\Models\Answer;
 use App\Models\Paper;
 use App\Models\Question;
+use App\Models\Score;
 use App\Models\Subject;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PapersController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -141,5 +149,45 @@ class PapersController extends Controller
     public function destroy($id)
     {
 
+    }
+
+    public function submit(Request $request)
+    {
+        $paper = Paper::find($request->paper_id);
+        //保存scores表
+        $score = new Score();
+        $score->user_id = Auth::id();
+        $score->paper_id = $paper->id;
+        $score->save();
+        //保存amswer表
+
+        $total = 0;
+        $total += $this->countScore($request->select, $score, $paper->type_1_per_score);
+        $total += $this->countScore($request->judge, $score, $paper->type_2_per_score);
+        $total += $this->countScore($request->blank, $score, $paper->type_3_per_score);
+
+        $score->score = $total;
+        $score->update();
+    }
+
+    public function countScore($array, $score, $per_score)
+    {
+        if(is_array($array)){
+            $answerObject = new Answer();
+            $total = 0;
+            foreach ($array as $id=>$answer){
+                $question = Question::find($id);
+                if ($answer == $question->answer){
+                    $total += $per_score;
+                }
+
+                $answerObject->score_id = $score->id;
+                $answerObject->question_id = $id;
+                $answerObject->answer = $answer;
+                $answerObject->save();
+            }
+            return $total;
+        }
+        return 0;
     }
 }
